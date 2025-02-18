@@ -5,13 +5,13 @@ using UnityEngine.UI;
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
-    public List<Item> inventoryItems = new List<Item>(); // Lista de itens coletados
-    public Transform inventoryPanel; // Painel gráfico do inventário
-    public GameObject inventorySlotPrefab; // Prefab do slot do inventário
-    public Button equipButton, useButton; // Botões de equipar e usar
-    private Item selectedItem = null; // Item atualmente selecionado
-    private bool isInventoryOpen = false; // Estado do inventário
-    private bool canUseItem = false; // Se o jogador pode usar o item no momento
+    public List<Item> inventoryItems = new List<Item>();
+    public Transform inventoryPanel;
+    public GameObject inventorySlotPrefab;
+    public Button equipButton, useButton;
+    private Item selectedItem = null;
+    private bool isInventoryOpen = false;
+    private GameObject currentInteractableObject = null; // Objeto interativo atual
 
     private void Awake()
     {
@@ -72,8 +72,6 @@ public class InventoryManager : MonoBehaviour
         {
             isInventoryOpen = !isInventoryOpen;
             inventoryPanel.gameObject.SetActive(isInventoryOpen);
-            equipButton.enabled = isInventoryOpen;
-            useButton.enabled = isInventoryOpen;
 
             if (isInventoryOpen)
             {
@@ -90,7 +88,7 @@ public class InventoryManager : MonoBehaviour
     {
         selectedItem = item;
         equipButton.gameObject.SetActive(true);
-        useButton.gameObject.SetActive(canUseItem);
+        useButton.gameObject.SetActive(currentInteractableObject != null);
     }
 
     public void DeselectItem()
@@ -110,20 +108,33 @@ public class InventoryManager : MonoBehaviour
 
     public void UseItem()
     {
-        if (selectedItem != null && canUseItem)
+        if (selectedItem != null && currentInteractableObject != null)
         {
-            Debug.Log("Item usado: " + selectedItem.itemName);
-            RemoveItem(selectedItem);
-            DeselectItem();
+            Debug.Log("Usando " + selectedItem.itemName + " em " + currentInteractableObject.name);
+            if(currentInteractableObject.tag == "Barricada" && selectedItem.name == "Madeira")
+            {
+                Destroy(currentInteractableObject);
+                RemoveItem(selectedItem);
+                DeselectItem();
+            }
         }
     }
 
-    public void SetCanUseItem(bool state)
+    public void SetInteractableObject(GameObject interactableObject)
     {
-        canUseItem = state;
+        currentInteractableObject = interactableObject;
         if (selectedItem != null)
         {
-            useButton.gameObject.SetActive(canUseItem);
+            useButton.gameObject.SetActive(currentInteractableObject != null);
+        }
+    }
+
+    public void ClearInteractableObject(GameObject interactableObject)
+    {
+        if (currentInteractableObject == interactableObject)
+        {
+            currentInteractableObject = null;
+            useButton.gameObject.SetActive(false);
         }
     }
 }

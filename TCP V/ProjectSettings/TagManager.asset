@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Vida
   - Item
+  - Barricada
   layers:
   - Default
   - TransparentFX

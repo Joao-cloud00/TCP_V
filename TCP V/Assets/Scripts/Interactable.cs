@@ -8,7 +8,7 @@ public class Interactable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            InventoryManager.Instance.SetCanUseItem(true);
+            InventoryManager.Instance.SetInteractableObject(gameObject);
         }
     }
 
@@ -16,7 +16,8 @@ public class Interactable : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            InventoryManager.Instance.SetCanUseItem(false);
+            InventoryManager.Instance.ClearInteractableObject(gameObject);
         }
     }
 }
+
