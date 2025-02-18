@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movement;
     public float rotationSpeed = 200f;
+    public Animator anim;
 
     void Start()
     {
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         movement = new Vector2(horizontal, vertical).normalized;
 
         UpdateRotation();
+
     }
 
     void FixedUpdate()
@@ -36,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movement != Vector2.zero)
         {
+            anim.SetBool("andando", true);
+
             // Calcula o ângulo desejado, ajustando para o personagem começar olhando para cima
             float targetAngle = Mathf.Atan2(movement.y, movement.x) * Mathf.Rad2Deg - 90f;
 
@@ -44,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
 
             // Suaviza a rotação em direção ao ângulo desejado
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+        else
+        {
+            anim.SetBool("andando", false);
         }
     }
 
