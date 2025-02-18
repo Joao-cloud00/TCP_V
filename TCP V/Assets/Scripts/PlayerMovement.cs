@@ -48,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
             // Suaviza a rotação em direção ao ângulo desejado
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
         }
         else
         {
