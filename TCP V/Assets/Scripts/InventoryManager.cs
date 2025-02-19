@@ -8,16 +8,23 @@ public class InventoryManager : MonoBehaviour
     public List<Item> inventoryItems = new List<Item>();
     public Transform inventoryPanel;
     public GameObject inventorySlotPrefab;
-    public Button equipButton, useButton;
-    private Item selectedItem = null;
+    public Button equipButton, useButton, combineButton; // Novo botão de combinar
+    private Item selectedItem1 = null;
+    private Item selectedItem2 = null;
+    public Item itemData;
     private bool isInventoryOpen = false;
-    private GameObject currentInteractableObject = null; // Objeto interativo atual
+    private GameObject currentInteractableObject = null;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject); // Persiste entre cenas
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -26,6 +33,7 @@ public class InventoryManager : MonoBehaviour
         inventoryPanel.gameObject.SetActive(false);
         equipButton.gameObject.SetActive(false);
         useButton.gameObject.SetActive(false);
+        combineButton.gameObject.SetActive(false);
     }
 
     public void AddItem(Item newItem)
@@ -65,7 +73,6 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -79,51 +86,110 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
-                DeselectItem();
+                DeselectItems();
             }
+        }
+
+        // Se o inventário estiver aberto e o botão direito do mouse for pressionado, deseleciona os itens
+        if (isInventoryOpen && Input.GetMouseButtonDown(1)) // 1 = Botão direito do mouse
+        {
+            DeselectItems();
         }
     }
 
+
     public void SelectItem(Item item)
     {
-        selectedItem = item;
-        equipButton.gameObject.SetActive(true);
-        useButton.gameObject.SetActive(currentInteractableObject != null);
+        if (selectedItem1 == null)
+        {
+            selectedItem1 = item;
+        }
+        else if (selectedItem2 == null)
+        {
+            selectedItem2 = item;
+        }
+
+        equipButton.gameObject.SetActive(selectedItem1 != null && selectedItem2 == null);
+        useButton.gameObject.SetActive(selectedItem1 != null && selectedItem2 == null && currentInteractableObject != null);
+        combineButton.gameObject.SetActive(selectedItem1 != null && selectedItem2 != null);
     }
 
-    public void DeselectItem()
+    public void DeselectItems()
     {
-        selectedItem = null;
+        selectedItem1 = null;
+        selectedItem2 = null;
         equipButton.gameObject.SetActive(false);
         useButton.gameObject.SetActive(false);
+        combineButton.gameObject.SetActive(false);
     }
 
     public void EquipItem()
     {
-        if (selectedItem != null)
+        if (selectedItem1 != null)
         {
-            Debug.Log("Item equipado: " + selectedItem.itemName);
+            Debug.Log("Item equipado: " + selectedItem1.itemName);
         }
     }
 
     public void UseItem()
     {
-        if (selectedItem != null && currentInteractableObject != null)
+        if (selectedItem1 != null && currentInteractableObject != null)
         {
-            Debug.Log("Usando " + selectedItem.itemName + " em " + currentInteractableObject.name);
-            if(currentInteractableObject.tag == "Barricada" && selectedItem.name == "Madeira")
+            Interactable interactable = currentInteractableObject.GetComponent<Interactable>();
+            if (interactable != null && interactable.CanInteract(selectedItem1))
             {
-                Destroy(currentInteractableObject);
-                RemoveItem(selectedItem);
-                DeselectItem();
+                interactable.Interact(selectedItem1);
+                RemoveItem(selectedItem1);
+                DeselectItems();
+            }
+            else
+            {
+                Debug.Log("Esse item não pode ser usado aqui!");
             }
         }
+    }
+
+
+    public void CombineItems()
+    {
+        if (selectedItem1 != null && selectedItem2 != null)
+        {
+            Item combinedItem = GetCombinationResult(selectedItem1, selectedItem2);
+            if (combinedItem != null)
+            {
+                Debug.Log("Itens combinados: " + selectedItem1.itemName + " + " + selectedItem2.itemName + " = " + combinedItem.itemName);
+                RemoveItem(selectedItem1);
+                RemoveItem(selectedItem2);
+                AddItem(combinedItem);
+                DeselectItems();
+            }
+            else
+            {
+                Debug.Log("Esses itens não podem ser combinados!");
+                DeselectItems();
+            }
+        }
+    }
+
+    private Item GetCombinationResult(Item item1, Item item2)
+    {
+        // Exemplo de combinação: Se os itens forem "Pedra" e "Fogo", criamos "Pedra de Lava"
+        if ((item1.itemName == "Madeira" && item2.itemName == "Pregos") ||
+            (item1.itemName == "Pregos" && item2.itemName == "Madeira"))
+        {
+            Item combinedItem = ScriptableObject.CreateInstance<Item>();
+            combinedItem = itemData;
+            return combinedItem;
+
+        }
+
+        return null; // Nenhuma combinação válida
     }
 
     public void SetInteractableObject(GameObject interactableObject)
     {
         currentInteractableObject = interactableObject;
-        if (selectedItem != null)
+        if (selectedItem1 != null)
         {
             useButton.gameObject.SetActive(currentInteractableObject != null);
         }
