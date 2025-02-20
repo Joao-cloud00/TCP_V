@@ -8,6 +8,7 @@ TagManager:
   - Item
   - Barricada
   - Fase
+  - Inimigo
   layers:
   - Default
   - TransparentFX
