@@ -93,7 +93,8 @@ GameObject:
   - component: {fileID: 2378079226357154019}
   - component: {fileID: 5786190257117850956}
   - component: {fileID: 8854894837971957335}
-  - component: {fileID: 3013091820031574256}
+  - component: {fileID: 6021672930953309572}
+  - component: {fileID: 3358771701292617124}
   - component: {fileID: 3832177853480519944}
   - component: {fileID: 1447724650617782804}
   - component: {fileID: 8954108190622674044}
@@ -186,9 +187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  rotationSpeed: 300
+  rotationSpeed: 350
   anim: {fileID: 8954108190622674044}
---- !u!114 &3013091820031574256
+--- !u!114 &6021672930953309572
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -197,12 +198,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 6083602068339693049}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08914130784762645beb66a076172f8f, type: 3}
+  m_Script: {fileID: 11500000, guid: 19339c1e819552643b1225d814a96a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
-  healthText: {fileID: 0}
-  maxHealth: 100
+  attackDamage: 10
+  attackPoint: {fileID: 4213627235633746599}
+  attackCollider: {fileID: 3431365910505972521}
+--- !u!114 &3358771701292617124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083602068339693049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0af2e65c12977c4e9fc94979976fb97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  healthSlider: {fileID: 0}
+  text: {fileID: 0}
 --- !u!50 &3832177853480519944
 Rigidbody2D:
   serializedVersion: 4

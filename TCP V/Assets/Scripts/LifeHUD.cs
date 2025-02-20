@@ -16,12 +16,6 @@ public class LifeHUD : MonoBehaviour
         UpdateHUD();
     }
 
-    public void TakeDamage(int amount)
-    {
-        currentHealth = Mathf.Clamp(currentHealth - amount, 0, maxHealth);
-        UpdateHUD();
-    }
-
     public void Heal(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
