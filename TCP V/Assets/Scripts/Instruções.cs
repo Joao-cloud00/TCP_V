@@ -9,13 +9,6 @@ public class Instruções : MonoBehaviour
     public GameObject text;
     public bool PassarDeFase;
     public int level;
-    public string _musicName;
-
-    private void Awake()
-    {
-        AudioManager.instance.StopMusic("intro");
-        AudioManager.instance.PlayMusic("background_fase1");
-    }
 
     private void Update()
     {
