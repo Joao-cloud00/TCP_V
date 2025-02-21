@@ -16,6 +16,7 @@ public class EnemyShooter : MonoBehaviour
     private bool isReturning = false;
     private Vector2 startPosition;
     private bool movingRight = true;
+    public Animator anim;
 
     private void Start()
     {
@@ -90,6 +91,7 @@ public class EnemyShooter : MonoBehaviour
 
     private void ReturnToStart()
     {
+        
         transform.position = Vector2.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, startPosition) < 0.1f)
@@ -115,6 +117,7 @@ public class EnemyShooter : MonoBehaviour
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
+                anim.SetTrigger("atk");
                 playerHealth.TakeDamage(damageToPlayer);
             }
             TakeDamage(); // Faz o inimigo voltar para a posição inicial

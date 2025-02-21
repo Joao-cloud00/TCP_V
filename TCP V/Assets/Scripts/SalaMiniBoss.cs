@@ -10,6 +10,7 @@ public class SalaMiniBoss : MonoBehaviour
     public GameObject Luz;
     public GameObject MiniBoss;
     public TMP_Text Lista;
+    public string MusicBoss; // boi -> boitata, cabra -> chupa cabra, et -> Et, corposeco -> corpo seco
     private void Update()
     {
         
@@ -22,12 +23,16 @@ public class SalaMiniBoss : MonoBehaviour
             Porta.SetActive(true);
             Luz.SetActive(true);
             MiniBoss.SetActive(true);
+            AudioManager.instance.StopMusic("background_fase1");
+            AudioManager.instance.PlayMusic("idBoss");
         }
         if(Sair == true)
         {
             Lista.fontStyle = FontStyles.Strikethrough;
             Porta.SetActive(false);
             Luz.SetActive(false);
+            AudioManager.instance.StopMusic("idBoss");
+            AudioManager.instance.PlayMusic("background_fase1");
         }
     }
 }
