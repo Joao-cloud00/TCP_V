@@ -1018,6 +1018,11 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.2562809}
   m_EdgeRadius: 0
+--- !u!95 &385423125 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8954108190622674044, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
+  m_PrefabInstance: {fileID: 1753906889}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &388491990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,6 +2926,10 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1449763814}
+    - target: {fileID: 6021672930953309572, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 385423125}
     - target: {fileID: 6083602068339693049, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
       propertyPath: m_Name
       value: Jogador
