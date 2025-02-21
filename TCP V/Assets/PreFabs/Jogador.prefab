@@ -98,6 +98,7 @@ GameObject:
   - component: {fileID: 3832177853480519944}
   - component: {fileID: 1447724650617782804}
   - component: {fileID: 8954108190622674044}
+  - component: {fileID: 8949198076056329050}
   m_Layer: 0
   m_Name: Jogador
   m_TagString: Player
@@ -204,6 +205,7 @@ MonoBehaviour:
   attackDamage: 10
   attackPoint: {fileID: 4213627235633746599}
   attackCollider: {fileID: 3431365910505972521}
+  anim: {fileID: 8954108190622674044}
 --- !u!114 &3358771701292617124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,6 +304,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8949198076056329050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6083602068339693049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac2aae41c443ed24e971176b34e3a0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7729555209262045731
 GameObject:
   m_ObjectHideFlags: 0

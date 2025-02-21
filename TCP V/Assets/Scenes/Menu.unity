@@ -361,7 +361,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.567
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2082,7 +2082,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.542
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3162,6 +3162,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6ef4b4e174533d146aac7915e6fdb9c9, type: 3}
   - name: jumpScare1
     clip: {fileID: 8300000, guid: d40a2feebde10dc418568644ff92ff45, type: 3}
+  - name: atkJogador
+    clip: {fileID: 8300000, guid: 8c97a06cad37846438ce566d657b2606, type: 3}
   musicSource: {fileID: 1353151393}
   sfxSource: {fileID: 405453954}
 --- !u!4 &1888324444
