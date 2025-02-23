@@ -15,7 +15,14 @@ public class Fireball : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime); // Move para baixo
+        if(this.gameObject.name == "BolaDeFogo")
+        {
+            transform.Translate(Vector2.down * speed * Time.deltaTime); // Move para baixo
+        }
+        else
+        {
+            transform.Translate(Vector2.up * speed * Time.deltaTime); // Move para cima
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

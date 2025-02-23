@@ -117,7 +117,7 @@ public class EnemyShooter : MonoBehaviour
             PlayerHealth playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                anim.SetTrigger("atk");
+                //anim.SetTrigger("atk");
                 playerHealth.TakeDamage(damageToPlayer);
             }
             TakeDamage(); // Faz o inimigo voltar para a posição inicial
