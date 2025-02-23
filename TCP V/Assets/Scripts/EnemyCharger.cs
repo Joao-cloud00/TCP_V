@@ -9,7 +9,8 @@ public class EnemyCharge : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
     private bool isCharging = false;
-    private bool canTakeDamage = true; // ?? Controla se pode receber dano
+    private bool canTakeDamage = true;
+    public int damage = 10;// ?? Controla se pode receber dano
 
     void Start()
     {
@@ -63,6 +64,23 @@ public class EnemyCharge : MonoBehaviour
             enemy.currentHealth -= damage;
             Debug.Log(gameObject.name + " tomou " + damage + " de dano. Vida restante: " + enemy.currentHealth);
             canTakeDamage = false; // ?? Agora ele não pode mais levar dano até a próxima investida
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (isCharging && other.gameObject.CompareTag("Player"))
+        {
+            PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>(); // Pega o script da vida do jogador
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damage);
+                Debug.Log("Jogador levou dano!");
+            }
+
+            // ? Cancela a investida e reseta o ciclo
+            isCharging = false;
+            rb.velocity = Vector2.zero;
         }
     }
 }

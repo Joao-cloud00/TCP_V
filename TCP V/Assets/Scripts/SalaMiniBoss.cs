@@ -9,12 +9,9 @@ public class SalaMiniBoss : MonoBehaviour
     public bool Sair;
     public GameObject Luz;
     public GameObject MiniBoss;
+    public GameObject Saida;
     public TMP_Text Lista;
     public string MusicBoss; // boi -> boitata, cabra -> chupa cabra, et -> Et, corposeco -> corpo seco
-    private void Update()
-    {
-        
-    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -32,6 +29,7 @@ public class SalaMiniBoss : MonoBehaviour
         if (Sair == true)
         {
             Lista.fontStyle = FontStyles.Strikethrough;
+            Saida.GetComponent<Instruções>().contBoss++;
             Porta.SetActive(false);
             Luz.SetActive(false);
             //AudioManager.instance.StopMusic("idBoss");

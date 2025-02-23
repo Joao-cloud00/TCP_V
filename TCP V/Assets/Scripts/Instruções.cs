@@ -10,19 +10,28 @@ public class Instruções : MonoBehaviour
     public GameObject desafios;
     public bool PassarDeFase;
     public int level;
+    public int contBoss;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && PassarDeFase == true)
         {
-            SceneManager.LoadScene(level);
-            if(level == 3)
+            if(level < 3)
             {
-                desafios.SetActive(true);
+                SceneManager.LoadScene(level);
+                if (level == 3)
+                {
+                    desafios.SetActive(true);
+                }
             }
-            if(level == 4)
+            if(level == 4 && contBoss == 3)
             {
+                SceneManager.LoadScene(level);
                 desafios.SetActive(false);
+            }
+            else
+            {
+                Debug.Log("Não matou todos os Boss");
             }
         }
     }

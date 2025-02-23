@@ -374,6 +374,7 @@ MonoBehaviour:
   Sair: 0
   Luz: {fileID: 1921072718}
   MiniBoss: {fileID: 458146746}
+  Saida: {fileID: 1131291989}
   Lista: {fileID: 388491992}
   MusicBoss: cabra
 --- !u!61 &37068253
@@ -4262,9 +4263,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2077374235}
-  desafios: {fileID: 0}
+  desafios: {fileID: 134778283}
   PassarDeFase: 0
-  level: 3
+  level: 4
+  contBoss: 0
 --- !u!61 &1131291991
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4319,7 +4321,7 @@ Transform:
   m_GameObject: {fileID: 1131291989}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.29, y: 1.08, z: -0.0423989}
+  m_LocalPosition: {x: 8.76, y: 1.08, z: -0.0423989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4375,6 +4377,7 @@ MonoBehaviour:
   Sair: 0
   Luz: {fileID: 1069042415}
   MiniBoss: {fileID: 704915844}
+  Saida: {fileID: 1131291989}
   Lista: {fileID: 781148537}
   MusicBoss: et
 --- !u!61 &1312659332
@@ -6180,6 +6183,7 @@ MonoBehaviour:
   Sair: 0
   Luz: {fileID: 76210507}
   MiniBoss: {fileID: 1858309056}
+  Saida: {fileID: 1131291989}
   Lista: {fileID: 881771914}
   MusicBoss: boi
 --- !u!1 &2069800965
