@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Instruções : MonoBehaviour
 {
     public GameObject text;
+    public GameObject desafios;
     public bool PassarDeFase;
     public int level;
 
@@ -15,6 +16,14 @@ public class Instruções : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && PassarDeFase == true)
         {
             SceneManager.LoadScene(level);
+            if(level == 3)
+            {
+                desafios.SetActive(true);
+            }
+            if(level == 4)
+            {
+                desafios.SetActive(false);
+            }
         }
     }
 
