@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Inimigo : MonoBehaviour
 {
-    public int maxHealth = 30;
+    public int maxHealth = 50;
     public int currentHealth;
     public GameObject portaSala;
 
@@ -16,17 +16,28 @@ public class Inimigo : MonoBehaviour
     public void TakeDamage(int damage)
     {
         EnemyShooter shooter = this.gameObject.GetComponent<EnemyShooter>();
+        EnemyCharge charger = this.gameObject.GetComponent<EnemyCharge>();
+        EnemyChase chase = this.gameObject.GetComponent<EnemyChase>();
         if (shooter != null ) 
         {
             shooter.TakeDamage();
             currentHealth -= damage;
             Debug.Log(gameObject.name + " tomou " + damage + " de dano. Vida restante: " + currentHealth);
         }
-        else 
+        else if (charger != null ) 
         { 
-            EnemyCharge charger = this.gameObject.GetComponent<EnemyCharge>();
             charger.TakeDamage(damage);
         }
+        else if( chase != null )
+        {
+            if (chase.canTakeDamage)
+            {
+                chase.TakeDamage();
+                currentHealth -= damage;
+                Debug.Log(gameObject.name + " tomou " + damage + " de dano. Vida restante: " + currentHealth);
+            }
+        }
+
 
 
         if (currentHealth <= 0)

@@ -10,6 +10,7 @@ TagManager:
   - Fase
   - Inimigo
   - Fireball
+  - "Po\xE7a"
   layers:
   - Default
   - TransparentFX

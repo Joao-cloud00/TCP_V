@@ -55,6 +55,13 @@ public class PlayerAttack : MonoBehaviour
                 enemy.TakeDamage(attackDamage);
             }
         }
+
+        if(other.gameObject.tag == "Poça")
+        {
+            EnemyChase enemy = GameObject.FindObjectOfType<EnemyChase>();
+            Destroy(other.gameObject);
+            enemy.canTakeDamage = true;
+        }
     }
 
 }

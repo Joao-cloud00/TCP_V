@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,9 @@ public class InventoryManager : MonoBehaviour
     public bool isInventoryOpen = false;
     private GameObject currentInteractableObject = null;
     public bool atacar;
+
+    public Slider healthSlider; // Slider da HUD
+    public TMP_Text text; // Slider da HUD 
 
     private void Awake()
     {
@@ -76,6 +80,11 @@ public class InventoryManager : MonoBehaviour
     }
     void Update()
     {
+
+        healthSlider.maxValue = FindObjectOfType<PlayerHealth>().maxHealth;
+        healthSlider.value = FindObjectOfType<PlayerHealth>().currentHealth;
+        text.text = "Vida : " + FindObjectOfType<PlayerHealth>().currentHealth.ToString();
+
         if (Input.GetKeyDown(KeyCode.I))
         {
             isInventoryOpen = !isInventoryOpen;
