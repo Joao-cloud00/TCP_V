@@ -2084,6 +2084,7 @@ MonoBehaviour:
   desafios: {fileID: 0}
   PassarDeFase: 0
   level: 2
+  contBoss: 0
 --- !u!61 &1312310465
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3753,6 +3754,18 @@ PrefabInstance:
       propertyPath: healthText
       value: 
       objectReference: {fileID: 101640083}
+    - target: {fileID: 3358771701292617124, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
+      propertyPath: text
+      value: 
+      objectReference: {fileID: 101640083}
+    - target: {fileID: 3358771701292617124, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358771701292617124, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 958981995}
     - target: {fileID: 6083602068339693049, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}
       propertyPath: m_Name
       value: Jogador

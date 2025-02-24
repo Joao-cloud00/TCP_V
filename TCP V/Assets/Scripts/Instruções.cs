@@ -12,17 +12,18 @@ public class Instruções : MonoBehaviour
     public int level;
     public int contBoss;
 
+    private void Start()
+    {
+        desafios.SetActive(true);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.E) && PassarDeFase == true)
         {
-            if(level < 3)
+            if(level <= 3)
             {
                 SceneManager.LoadScene(level);
-                if (level == 3)
-                {
-                    desafios.SetActive(true);
-                }
             }
             if(level == 4 && contBoss == 3)
             {

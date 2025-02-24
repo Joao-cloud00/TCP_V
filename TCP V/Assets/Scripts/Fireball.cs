@@ -15,7 +15,7 @@ public class Fireball : MonoBehaviour
 
     private void Update()
     {
-        if(this.gameObject.name == "BolaDeFogo")
+        if(this.gameObject.tag == "Fireball")
         {
             transform.Translate(Vector2.down * speed * Time.deltaTime); // Move para baixo
         }
