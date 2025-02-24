@@ -8,18 +8,27 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPoint; // Ponto de ataque
     public Collider2D attackCollider; // Collider do ataque
     public Animator anim;
+    bool atacar;
+    bool InventoryOpen;
 
     private void Start()
     {
         attackCollider.enabled = false; // O Collider do ataque começa desativado
+        atacar = GameObject.FindObjectOfType<InventoryManager>().atacar;
+        InventoryOpen = GameObject.FindObjectOfType<InventoryManager>().isInventoryOpen;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        atacar = GameObject.FindObjectOfType<InventoryManager>().atacar;
+        InventoryOpen = GameObject.FindObjectOfType<InventoryManager>().isInventoryOpen;
+        if (atacar && !InventoryOpen)
         {
-            StartAttack();
-            anim.SetTrigger("atk");
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                StartAttack();
+                anim.SetTrigger("atk");
+            }
         }
     }
 

@@ -1026,6 +1026,8 @@ MonoBehaviour:
   useButton: {fileID: 386466579}
   combineButton: {fileID: 390632852}
   itemData: {fileID: 11400000, guid: 0e24c4ef8de074f4e9c6fa7fbdad712f, type: 2}
+  isInventoryOpen: 0
+  atacar: 0
 --- !u!4 &729490701 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4213627235633746599, guid: 5bb439e4da7513d4e849fa7b3eb4d153, type: 3}

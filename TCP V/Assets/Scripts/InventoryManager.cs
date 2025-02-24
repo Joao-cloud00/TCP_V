@@ -12,8 +12,9 @@ public class InventoryManager : MonoBehaviour
     private Item selectedItem1 = null;
     private Item selectedItem2 = null;
     public Item itemData;
-    private bool isInventoryOpen = false;
+    public bool isInventoryOpen = false;
     private GameObject currentInteractableObject = null;
+    public bool atacar;
 
     private void Awake()
     {
@@ -127,6 +128,12 @@ public class InventoryManager : MonoBehaviour
     {
         if (selectedItem1 != null)
         {
+            Item Item = ScriptableObject.CreateInstance<Item>();
+            Item = itemData;
+            if (selectedItem1 == Item)
+            {
+                atacar = true;
+            }
             Debug.Log("Item equipado: " + selectedItem1.itemName);
         }
     }
