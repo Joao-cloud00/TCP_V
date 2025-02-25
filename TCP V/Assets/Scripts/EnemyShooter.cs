@@ -106,6 +106,16 @@ public class EnemyShooter : MonoBehaviour
         while (!isChasing && !isReturning)
         {
             Instantiate(fireballPrefab, firePoint.position, Quaternion.identity);
+
+            if (this.gameObject.name == "ET")
+            {
+                AudioManager.instance.PlaySFX("zap");
+            }
+            else
+            {
+                AudioManager.instance.PlaySFX("fireball");
+            }
+
             yield return new WaitForSeconds(fireRate);
         }
     }
