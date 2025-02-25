@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -34,7 +35,9 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("O jogador morreu!");
-        gameObject.SetActive(false); // Desativa o jogador
+        gameObject.SetActive(false);
+        SceneManager.LoadScene(0);
+        // Desativa o jogador
         // Aqui você pode chamar uma tela de game over
     }
 }

@@ -7,6 +7,7 @@ public class GameTimer : MonoBehaviour
     public float timeLimit = 300f; // 5 minutos (300 segundos)
     public TMP_Text timerText; // Referência ao texto do tempo na UI
     private bool isGameOver = false;
+    public GameObject Derrota;
 
     void Update()
     {
@@ -31,6 +32,8 @@ public class GameTimer : MonoBehaviour
     void GameOver()
     {
         isGameOver = true;
+        Derrota.SetActive(true);
+        Time.timeScale = 0;
         Debug.Log("Tempo acabou! Derrota!");
         // Aqui você pode chamar uma tela de Game Over ou reiniciar a cena
     }

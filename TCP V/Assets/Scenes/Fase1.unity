@@ -1007,6 +1007,8 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 0e24c4ef8de074f4e9c6fa7fbdad712f, type: 2}
   isInventoryOpen: 0
   atacar: 0
+  healthSlider: {fileID: 958981995}
+  text: {fileID: 101640083}
 --- !u!1 &763349673
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Inimigo : MonoBehaviour
     public int maxHealth = 50;
     public int currentHealth;
     public GameObject portaSala;
+    public GameObject Victory;
 
     void Start()
     {
@@ -50,6 +51,11 @@ public class Inimigo : MonoBehaviour
     {
         Debug.Log(gameObject.name + " foi derrotado!");
         Destroy(gameObject);
+        if(gameObject.name == "CorpoSeco")
+        {
+            Victory.SetActive(true);
+            Time.timeScale = 0;
+        }
         portaSala.GetComponent<SalaMiniBoss>().Sair = true;
     }
 }
