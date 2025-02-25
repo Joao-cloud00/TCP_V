@@ -2612,6 +2612,7 @@ MonoBehaviour:
   maxHealth: 30
   currentHealth: 0
   portaSala: {fileID: 37068251}
+  Victory: {fileID: 0}
 --- !u!114 &458146751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3673,6 +3674,7 @@ GameObject:
   - component: {fileID: 704915848}
   - component: {fileID: 704915847}
   - component: {fileID: 704915846}
+  - component: {fileID: 704915850}
   m_Layer: 0
   m_Name: ET
   m_TagString: Inimigo
@@ -3711,6 +3713,7 @@ MonoBehaviour:
   maxHealth: 30
   currentHealth: 0
   portaSala: {fileID: 1312659329}
+  Victory: {fileID: 0}
 --- !u!114 &704915847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3731,7 +3734,6 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5868705852214428735, guid: 521822e4b1e25584da59de8fbc5f218e, type: 3}
   firePoint: {fileID: 288079271}
   damageToPlayer: 10
-  anim: {fileID: 0}
 --- !u!60 &704915848
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -3853,6 +3855,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &704915850
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704915844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5902e44f72bda064183729452046ac95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &781148535
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,6 +6154,8 @@ MonoBehaviour:
   itemData: {fileID: 11400000, guid: 0e24c4ef8de074f4e9c6fa7fbdad712f, type: 2}
   isInventoryOpen: 0
   atacar: 0
+  healthSlider: {fileID: 0}
+  text: {fileID: 0}
 --- !u!114 &1611540098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6841,7 +6866,6 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5868705852214428735, guid: 06c9fb68981da4a469c9b2728d26ebf4, type: 3}
   firePoint: {fileID: 1661494588}
   damageToPlayer: 10
-  anim: {fileID: 1858309062}
 --- !u!114 &1858309059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6857,6 +6881,7 @@ MonoBehaviour:
   maxHealth: 30
   currentHealth: 0
   portaSala: {fileID: 2007677381}
+  Victory: {fileID: 0}
 --- !u!212 &1858309060
 SpriteRenderer:
   m_ObjectHideFlags: 0
