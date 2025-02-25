@@ -35,6 +35,7 @@ public class EnemyCharge : MonoBehaviour
             // 2?? Ativa a investida e permite dano
             isCharging = true;
             canTakeDamage = true; // ?? Reseta a capacidade de levar dano
+            AudioManager.instance.PlaySFX("cc1");
             rb.velocity = transform.up * chargeSpeed; // Move para frente
             yield return new WaitForSeconds(chargeDuration);
             rb.velocity = Vector2.zero;

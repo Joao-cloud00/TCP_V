@@ -16,7 +16,7 @@ public class EnemyShooter : MonoBehaviour
     private bool isReturning = false;
     private Vector2 startPosition;
     private bool movingRight = true;
-    //public Animator anim;
+    public Animator anim;
 
     private void Start()
     {
@@ -109,6 +109,7 @@ public class EnemyShooter : MonoBehaviour
 
             if (this.gameObject.name == "ET")
             {
+                anim.SetTrigger("atk");
                 AudioManager.instance.PlaySFX("zap");
             }
             else

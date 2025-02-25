@@ -9,6 +9,8 @@ public class EnemyChase : MonoBehaviour
     private Transform player;
     private Rigidbody2D rb;
 
+    public Animator anim;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -41,6 +43,7 @@ public class EnemyChase : MonoBehaviour
             PlayerHealth playerHealth = other.gameObject.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
+                anim.SetTrigger("atk");
                 playerHealth.TakeDamage(damage);
                 Debug.Log("Jogador levou dano do inimigo!");
             }

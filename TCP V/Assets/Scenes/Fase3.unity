@@ -2492,6 +2492,7 @@ GameObject:
   - component: {fileID: 458146750}
   - component: {fileID: 458146749}
   - component: {fileID: 458146748}
+  - component: {fileID: 458146753}
   m_Layer: 0
   m_Name: ChupaCabra
   m_TagString: Inimigo
@@ -2613,6 +2614,7 @@ MonoBehaviour:
   currentHealth: 0
   portaSala: {fileID: 37068251}
   Victory: {fileID: 0}
+  slide: {fileID: 0}
 --- !u!114 &458146751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2681,6 +2683,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &458146753
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 458146746}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6511f7a8a4af0a24a85c99c704de642b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &480716402
 GameObject:
   m_ObjectHideFlags: 0
@@ -3714,6 +3737,7 @@ MonoBehaviour:
   currentHealth: 0
   portaSala: {fileID: 1312659329}
   Victory: {fileID: 0}
+  slide: {fileID: 0}
 --- !u!114 &704915847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3734,6 +3758,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5868705852214428735, guid: 521822e4b1e25584da59de8fbc5f218e, type: 3}
   firePoint: {fileID: 288079271}
   damageToPlayer: 10
+  anim: {fileID: 704915850}
 --- !u!60 &704915848
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -6866,6 +6891,7 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5868705852214428735, guid: 06c9fb68981da4a469c9b2728d26ebf4, type: 3}
   firePoint: {fileID: 1661494588}
   damageToPlayer: 10
+  anim: {fileID: 0}
 --- !u!114 &1858309059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6882,6 +6908,7 @@ MonoBehaviour:
   currentHealth: 0
   portaSala: {fileID: 2007677381}
   Victory: {fileID: 0}
+  slide: {fileID: 0}
 --- !u!212 &1858309060
 SpriteRenderer:
   m_ObjectHideFlags: 0
