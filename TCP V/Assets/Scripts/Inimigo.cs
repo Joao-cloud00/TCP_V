@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inimigo : MonoBehaviour
 {
@@ -8,10 +9,13 @@ public class Inimigo : MonoBehaviour
     public int currentHealth;
     public GameObject portaSala;
     public GameObject Victory;
+    public Slider slide;
 
     void Start()
     {
         currentHealth = maxHealth;
+        slide.maxValue = currentHealth;
+        slide.value = currentHealth;
     }
 
     public void TakeDamage(int damage)
@@ -35,6 +39,7 @@ public class Inimigo : MonoBehaviour
             {
                 chase.TakeDamage();
                 currentHealth -= damage;
+                slide.value = currentHealth;    
                 Debug.Log(gameObject.name + " tomou " + damage + " de dano. Vida restante: " + currentHealth);
             }
         }
