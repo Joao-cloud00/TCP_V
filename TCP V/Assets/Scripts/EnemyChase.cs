@@ -56,6 +56,7 @@ public class EnemyChase : MonoBehaviour
             if (playerHealth != null)
             {
                 anim.SetTrigger("atk");
+                AudioManager.instance.PlaySFX("atk_boss");
                 playerHealth.TakeDamage(damage);
                 Debug.Log("Jogador levou dano do inimigo!");
             }

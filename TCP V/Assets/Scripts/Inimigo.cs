@@ -26,18 +26,21 @@ public class Inimigo : MonoBehaviour
         if (shooter != null ) 
         {
             shooter.TakeDamage();
+            AudioManager.instance.PlaySFX("dmg_boss");
             currentHealth -= damage;
             Debug.Log(gameObject.name + " tomou " + damage + " de dano. Vida restante: " + currentHealth);
         }
         else if (charger != null ) 
         { 
             charger.TakeDamage(damage);
+            AudioManager.instance.PlaySFX("dmg_boss");
         }
         else if( chase != null )
         {
             if (chase.canTakeDamage)
             {
                 chase.TakeDamage();
+                AudioManager.instance.PlaySFX("dmg_boss");
                 currentHealth -= damage;
                 slide.value = currentHealth;    
                 Debug.Log(gameObject.name + " tomou " + damage + " de dano. Vida restante: " + currentHealth);

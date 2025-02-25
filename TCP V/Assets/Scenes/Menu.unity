@@ -3449,6 +3449,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 08f97e5a163ba934382aa4511b218199, type: 3}
   - name: estranho2
     clip: {fileID: 8300000, guid: 665ec07d3b67abb4497385d7805262ff, type: 3}
+  - name: atk_boss
+    clip: {fileID: 8300000, guid: cbc3b8d1869f0bd4c8f500d251ef0cb8, type: 3}
+  - name: dmg_daniel
+    clip: {fileID: 8300000, guid: a3712432338de694bbcad63ad0de9954, type: 3}
+  - name: dmg_boss
+    clip: {fileID: 8300000, guid: 0f564f80ddfe53c419c534d56377256e, type: 3}
   musicSource: {fileID: 1353151393}
   sfxSource: {fileID: 405453954}
 --- !u!4 &1888324444

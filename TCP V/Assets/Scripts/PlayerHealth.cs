@@ -22,6 +22,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AudioManager.instance.PlaySFX("dmg_daniel");
         currentHealth -= damage;
         //healthSlider.value = currentHealth;
         //text.text = "Vida : "  + currentHealth.ToString();
